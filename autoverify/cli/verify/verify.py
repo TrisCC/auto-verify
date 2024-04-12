@@ -2,12 +2,23 @@ import time
 import datetime
 from pathlib import Path
 from result import Err, Ok
-from autoverify.verifier import Nnenum
+from autoverify.verifier.verifier import CompleteVerifier
+from autoverify.verifier import Nnenum, AbCrown, MnBab, OvalBab, Verinet
+
+verifiers: dict[str, CompleteVerifier] = {
+    "nnenum": Nnenum,
+    "abcrown": AbCrown,
+    "mnbab": MnBab,
+    "ovalbab": OvalBab,
+    "verinet": Verinet,
+}
 
 
 def verify_network(verifier, network, property):
-    # TODO: Parse verifier type
-    verifier = Nnenum()
+    if verifier not in verifiers:
+        return Err(f"No verifier found for {verifier}")
+
+    verifier = verifiers[verifier]()
 
     # TODO: Check if file exists
     network_file = Path(network)
@@ -31,19 +42,3 @@ def verify_network(verifier, network, property):
     print(f"Time elapsed for verification: {runtime}")
 
     return
-
-
-if __name__ == "__main__":
-    verifier = Nnenum()
-
-    network = Path("tests/fake_vnncomp/trivial/onnx/test_nano.onnx")
-    prop = Path("tests/fake_vnncomp/trivial/vnnlib/test_nano.vnnlib")
-
-    result = verifier.verify_property(network, prop)
-
-    if isinstance(result, Ok):
-        outcome = result.unwrap().result
-        print("Verification finished, result:", outcome)
-    elif isinstance(result, Err):
-        print("Error during verification:")
-        print(result.unwrap_err().stdout)
