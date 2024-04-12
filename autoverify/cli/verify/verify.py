@@ -1,3 +1,5 @@
+import time
+import datetime
 from pathlib import Path
 from result import Err, Ok
 from autoverify.verifier import Nnenum
@@ -11,7 +13,11 @@ def verify_network(verifier, network, property):
     network_file = Path(network)
     property_file = Path(property)
 
+    start = time.time()
     result = verifier.verify_property(network_file, property_file)
+    end = time.time()
+
+    runtime = str(datetime.timedelta(seconds=round(end - start)))
 
     # TODO: More elaborate results
     # TODO: Add time benchmarks
@@ -21,6 +27,9 @@ def verify_network(verifier, network, property):
     elif isinstance(result, Err):
         print("Error during verification:")
         print(result.unwrap_err().stdout)
+
+    print(f"Time elapsed for verification: {runtime}")
+
     return
 
 
