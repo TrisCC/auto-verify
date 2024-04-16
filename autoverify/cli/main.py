@@ -12,13 +12,16 @@ from install import (
     try_uninstall_verifiers,
 )
 
-from verify import (
+from experiment import (
     verify_network,
     configure_algorithm,
     construct_portfolio,
     execute_portfolio
 )
 
+from benchmark import (
+    run_benchmark
+)
 
 def _build_arg_parser() -> argparse.ArgumentParser:
     """Setup the cli arg options."""
@@ -86,6 +89,8 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     construct_portfolio_parser = subparsers.add_parser("construct_portfolio")
     
     execute_portfolio_parser = subparsers.add_parser("execute_portfolio")
+    
+    run_benchmark_perser = subparsers.add_parser("run_benchmark")
 
     return parser
 
@@ -111,6 +116,8 @@ def main():
         construct_portfolio()
     elif subparser == "execute_portfolio":
         execute_portfolio()
+    elif subparser == "run_benchmark":
+        run_benchmark()
 
 
 if __name__ == "__main__":
