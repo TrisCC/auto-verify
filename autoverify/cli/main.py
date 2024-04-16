@@ -12,7 +12,12 @@ from install import (
     try_uninstall_verifiers,
 )
 
-from verify import verify_network
+from verify import (
+    verify_network,
+    configure_algorithm,
+    construct_portfolio,
+    execute_portfolio
+)
 
 
 def _build_arg_parser() -> argparse.ArgumentParser:
@@ -35,48 +40,52 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     )
 
     install_parser = subparsers.add_parser("install")
-    uninstall_parser = subparsers.add_parser("uninstall")
-
     install_parser.add_argument(
-        "install",
+        "verifier",
         nargs="+",
         choices=get_all_complete_verifier_names(),
         help="install specified verifiers and exit",
     )
 
+    uninstall_parser = subparsers.add_parser("uninstall")
     uninstall_parser.add_argument(
-        "uninstall",
+        "verifier",
         nargs="+",
         choices=get_all_complete_verifier_names(),
         help="uninstall specified verifiers and exit",
     )
 
-    experiment_parser = subparsers.add_parser("experiment")
-
-    experiment_parser.add_argument(
-        "type",
-        metavar="experiment_type",
-        nargs=1,
-        choices=["single"],
-        help="specify the type of experiment",
-    )
-    experiment_parser.add_argument(
+    verify_network_parser = subparsers.add_parser("verify_network")
+    verify_network_parser.add_argument(
         "verifier",
         metavar="verifier",
         nargs=1,
         choices=get_all_complete_verifier_names(),
         help="verifier to be used for verification",
     )
-    experiment_parser.add_argument(
+    verify_network_parser.add_argument(
         "property",
         nargs=1,
         help="property file to be used for verification",
     )
-    experiment_parser.add_argument(
+    verify_network_parser.add_argument(
         "network",
         nargs=1,
         help="network file to be used for verification",
     )
+    
+    configure_algorithm_parser = subparsers.add_parser("configure_algorithm")
+    configure_algorithm_parser.add_argument(
+        "verifier",
+        metavar="verifier",
+        nargs=1,
+        choices=get_all_complete_verifier_names(),
+        help="verifier to be used for verification",
+    )
+
+    construct_portfolio_parser = subparsers.add_parser("construct_portfolio")
+    
+    execute_portfolio_parser = subparsers.add_parser("execute_portfolio")
 
     return parser
 
@@ -85,17 +94,23 @@ def main():
     """Parse and process cli args."""
     parser = _build_arg_parser()
     args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
+    subparser = args.subparser_name
 
     if args.check_versions:
         check_commit_hashes()
 
-    if hasattr(args, "install"):
-        try_install_verifiers(args.install)
-    elif hasattr(args, "uninstall"):
-        try_uninstall_verifiers(args.uninstall)
-    elif hasattr(args, "type"):
-        # TODO: Add different types of experiments
+    if subparser == "install":
+        try_install_verifiers(args.verifier)
+    elif subparser == "uninstall":
+        try_uninstall_verifiers(args.verifier)
+    elif subparser == "verify_network":
         verify_network(args.verifier[0], args.property[0], args.network[0])
+    elif subparser == "configure_algorithm":
+        configure_algorithm(args.verifier[0])
+    elif subparser == "construct_portfolio":
+        construct_portfolio()
+    elif subparser == "execute_portfolio":
+        execute_portfolio()
 
 
 if __name__ == "__main__":
