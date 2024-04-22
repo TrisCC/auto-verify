@@ -2,8 +2,11 @@ import time
 import datetime
 from pathlib import Path
 from result import Err, Ok
+from autoverify.portfolio.hydra.hydra import Hydra
+from autoverify.portfolio.portfolio import PortfolioScenario
 from autoverify.verifier.verifier import CompleteVerifier
 from autoverify.verifier import Nnenum, AbCrown, MnBab, OvalBab, Verinet
+from autoverify.util.instances import read_vnncomp_instances
 
 verifiers: dict[str, CompleteVerifier] = {
     "nnenum": Nnenum,
@@ -46,20 +49,37 @@ def verify_network(verifier, network, property):
 
     return
 
+
 def configure_algorithm(verifier):
     if verifier not in verifiers:
         return Err(f"No verifier found for {verifier}")
-    
+
     verifier = verifiers[verifier]()
-    
+
     config = verifier.config_space.sample_configuration()
     print(config)
 
     return
 
-def construct_portfolio(verifiers, instances):
+
+def construct_portfolio(verifiers, asdas):
+    instances = read_vnncomp_instances(
+        "acasxu", Path("vnncomp/vnncomp2023_benchmarks/benchmarks/")
+    )
+    pf_scenario = PortfolioScenario(
+        instances=instances,
+        verifiers=["nnenum", "verinet"],
+        length=4,
+        resources=[],
+        seconds_per_iter=10,
+    )
+    hydra = Hydra(pf_scenario)
+    portfolio = hydra.tune_portfolio()
+    portfolio.to_json("example_pf.json")
+
     print("WIP")
     return
+
 
 def execute_portfolio(portfolio, instances):
     print("WIP")

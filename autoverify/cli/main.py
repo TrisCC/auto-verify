@@ -16,12 +16,11 @@ from experiment import (
     verify_network,
     configure_algorithm,
     construct_portfolio,
-    execute_portfolio
+    execute_portfolio,
 )
 
-from benchmark import (
-    run_benchmark
-)
+from benchmark import run_benchmark
+
 
 def _build_arg_parser() -> argparse.ArgumentParser:
     """Setup the cli arg options."""
@@ -40,6 +39,7 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(
         title="subcommands",
         help="""run <subcommand> --help for a list of available options""",
+        dest="command",
     )
 
     install_parser = subparsers.add_parser("install")
@@ -76,7 +76,7 @@ def _build_arg_parser() -> argparse.ArgumentParser:
         nargs=1,
         help="network file to be used for verification",
     )
-    
+
     configure_algorithm_parser = subparsers.add_parser("configure_algorithm")
     configure_algorithm_parser.add_argument(
         "verifier",
@@ -87,9 +87,9 @@ def _build_arg_parser() -> argparse.ArgumentParser:
     )
 
     construct_portfolio_parser = subparsers.add_parser("construct_portfolio")
-    
+
     execute_portfolio_parser = subparsers.add_parser("execute_portfolio")
-    
+
     run_benchmark_perser = subparsers.add_parser("run_benchmark")
 
     return parser
@@ -99,24 +99,24 @@ def main():
     """Parse and process cli args."""
     parser = _build_arg_parser()
     args = parser.parse_args(args=None if sys.argv[1:] else ["--help"])
-    subparser = args.subparser_name
+    command = args.command
 
     if args.check_versions:
         check_commit_hashes()
 
-    if subparser == "install":
+    if command == "install":
         try_install_verifiers(args.verifier)
-    elif subparser == "uninstall":
+    elif command == "uninstall":
         try_uninstall_verifiers(args.verifier)
-    elif subparser == "verify_network":
+    elif command == "verify_network":
         verify_network(args.verifier[0], args.property[0], args.network[0])
-    elif subparser == "configure_algorithm":
+    elif command == "configure_algorithm":
         configure_algorithm(args.verifier[0])
-    elif subparser == "construct_portfolio":
-        construct_portfolio()
-    elif subparser == "execute_portfolio":
+    elif command == "construct_portfolio":
+        construct_portfolio("asda", "asasda")
+    elif command == "execute_portfolio":
         execute_portfolio()
-    elif subparser == "run_benchmark":
+    elif command == "run_benchmark":
         run_benchmark()
 
 
