@@ -90,7 +90,19 @@ def _build_arg_parser() -> argparse.ArgumentParser:
 
     execute_portfolio_parser = subparsers.add_parser("execute_portfolio")
 
-    run_benchmark_perser = subparsers.add_parser("run_benchmark")
+    run_benchmark_parser = subparsers.add_parser("run_benchmark")
+    run_benchmark_parser.add_argument(
+        "verifier",
+        metavar="verifier",
+        nargs=1,
+        choices=get_all_complete_verifier_names(),
+        help="verifier to be used for verification",
+    )
+    run_benchmark_parser.add_argument(
+        "path",
+        nargs=1,
+        help="path to the benchmark folder",
+    )
 
     return parser
 
@@ -117,7 +129,11 @@ def main():
     elif command == "execute_portfolio":
         execute_portfolio()
     elif command == "run_benchmark":
-        run_benchmark()
+        run_benchmark(args.verifier[0], args.path[0])
+    else:
+        parser.print_help()
+
+
 
 
 if __name__ == "__main__":
