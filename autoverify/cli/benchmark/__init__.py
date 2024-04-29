@@ -1,7 +1,11 @@
 from .benchmark import (
-    run_benchmark
+    run_specified_benchmark,
+    run_compilation_benchmark,
+    create_compilation_benchmark
 )
 
 __all__ = [
-    "run_benchmark"
+    "run_specified_benchmark",
+    "run_compilation_benchmark",
+    "create_compilation_benchmark"
 ]

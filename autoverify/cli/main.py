@@ -19,7 +19,11 @@ from experiment import (
     execute_portfolio,
 )
 
-from benchmark import run_benchmark
+from benchmark import (
+    run_specified_benchmark,
+    run_compilation_benchmark,
+    create_compilation_benchmark
+)
 
 
 def _build_arg_parser() -> argparse.ArgumentParser:
@@ -90,18 +94,39 @@ def _build_arg_parser() -> argparse.ArgumentParser:
 
     execute_portfolio_parser = subparsers.add_parser("execute_portfolio")
 
-    run_benchmark_parser = subparsers.add_parser("run_benchmark")
-    run_benchmark_parser.add_argument(
+    run_specified_benchmark_parser = subparsers.add_parser("run_specified_benchmark")
+    run_specified_benchmark_parser.add_argument(
         "verifier",
         metavar="verifier",
         nargs=1,
         choices=get_all_complete_verifier_names(),
         help="verifier to be used for verification",
     )
-    run_benchmark_parser.add_argument(
+    run_specified_benchmark_parser.add_argument(
         "path",
         nargs=1,
         help="path to the benchmark folder",
+    )
+    
+    run_compilation_benchmark_parser = subparsers.add_parser("run_compilation_benchmark")
+    run_compilation_benchmark_parser.add_argument(
+        "verifier",
+        metavar="verifier",
+        nargs=1,
+        choices=get_all_complete_verifier_names(),
+        help="verifier to be used for verification",
+    )
+    run_compilation_benchmark_parser.add_argument(
+        "path",
+        nargs=1,
+        help="path to the benchmark folder",
+    )
+    
+    create_compilation_benchmark_parser = subparsers.add_parser("create_compilation_benchmark")
+    create_compilation_benchmark_parser.add_argument(
+        "path",
+        nargs=1,
+        help="path to the vnncomp folder",
     )
 
     return parser
@@ -128,8 +153,12 @@ def main():
         construct_portfolio("asda", "asasda")
     elif command == "execute_portfolio":
         execute_portfolio()
-    elif command == "run_benchmark":
-        run_benchmark(args.verifier[0], args.path[0])
+    elif command == "run_specified_benchmark":
+        run_specified_benchmark(args.verifier[0], args.path[0])
+    elif command == "run_compilation_benchmark":
+        run_compilation_benchmark(args.verifier[0], args.path[0])
+    elif command == "create_compilation_benchmark":
+        create_compilation_benchmark(args.path[0])
     else:
         parser.print_help()
 
