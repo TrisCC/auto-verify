@@ -66,7 +66,7 @@ def run_benchmark(verifier, benchmmark_name, file_combinations):
     verifier_name = verifier
     verifier = verifiers[verifier]()
     
-    res = {
+    result_summary = {
         "TOTAL_RUNTIME": 0,
         "TOTAL_RUNS": len(file_combinations["onnx"]),
         "SAT": 0,
@@ -78,6 +78,11 @@ def run_benchmark(verifier, benchmmark_name, file_combinations):
         "LONGEST_RUN_TIME": 0,
         "LONGEST_RUN_TIME_NETWORK": "",
         "LONGEST_RUN_TIME_PROPERTY": ""
+    }
+    
+    result_detailed = {
+        "run": [
+        ]
     }
     
     total_combinations = len(file_combinations["onnx"])
@@ -98,47 +103,73 @@ def run_benchmark(verifier, benchmmark_name, file_combinations):
             end = time.time()
             
             # Record longest runtime
-            if end - start > res["LONGEST_RUN_TIME"]:
-                res["LONGEST_RUN_TIME"] = end - start
-                res["LONGEST_RUN_TIME_NETWORK"] = str(network_file)
-                res["LONGEST_RUN_TIME_PROPERTY"] = str(property_file)
+            if end - start > result_summary["LONGEST_RUN_TIME"]:
+                result_summary["LONGEST_RUN_TIME"] = end - start
+                result_summary["LONGEST_RUN_TIME_NETWORK"] = str(network_file)
+                result_summary["LONGEST_RUN_TIME_PROPERTY"] = str(property_file)
                 
             # Record Error files
             if verification_result.value.result == "ERR":
-                res["ERR_FILES"].append({
-                    "ONNX": str(network_file), 
-                    "VNNLIB": str(property_file), 
+                result_summary["ERR_FILES"].append({
+                    "ONNX": network_file.stem, 
+                    "VNNLIB": property_file.stem, 
                     "ERROR": verification_result.value.stdout.rstrip().splitlines()[:3] + ["..."] + verification_result.value.stdout.rstrip().splitlines()[-3:],
                     "RUNTIME": end - start})
+                result_detailed["run"].append({
+                    "INDEX": i,
+                    "ONNX": network_file.stem, 
+                    "VNNLIB": property_file.stem, 
+                    "RESULT": "ERR",
+                    "OUTPUT": verification_result.value.stdout.rstrip().splitlines()[:3] + ["..."] + verification_result.value.stdout.rstrip().splitlines()[-3:],
+                    "RUNTIME": end - start
+                })
                 print(f"ERROR: {verification_result.value.stdout.rstrip().splitlines()[0]}")
             
             # Record results
-            res[verification_result.value.result] += 1
+            result_summary[verification_result.value.result] += 1
+            result_detailed["run"].append({
+                    "INDEX": i,
+                    "ONNX": network_file.stem, 
+                    "VNNLIB": property_file.stem, 
+                    "RESULT": verification_result.value.result,
+                    "OUTPUT": verification_result.value.stdout.rstrip().splitlines()[:3],
+                    "RUNTIME": end - start
+            })
         except Exception as e:
             # Record Error files
-            res["ERR_FILES"].append({
-                "ONNX": str(network_file), 
-                "VNNLIB": str(property_file), 
+            result_summary["ERR_FILES"].append({
+                "ONNX": network_file.stem, 
+                "VNNLIB": property_file.stem, 
                 "ERROR": str(e).rstrip().splitlines()[:3] + ["..."] + str(e).rstrip().splitlines()[-3:],
                 "RUNTIME": end - start})
+            result_detailed["run"].append({
+                "INDEX": i,
+                "ONNX": network_file.stem, 
+                "VNNLIB": property_file.stem, 
+                "RESULT": "ERR",
+                "OUTPUT": verification_result.value.stdout.rstrip().splitlines()[:3] + ["..."] + verification_result.value.stdout.rstrip().splitlines()[-3:],
+                "RUNTIME": end - start
+            })
             print(f"ERROR: {verification_result.value.stdout.rstrip().splitlines()[0]}")
-            res["ERR"] += 1
+            result_summary["ERR"] += 1
         
         current_combination += 1
     end_total = time.time()
     
-    res["TOTAL_RUNTIME"] = end_total - start_total
+    result_summary["TOTAL_RUNTIME"] = end_total - start_total
     
     # Print results
-    print(f"SAT: {res['SAT']}")
-    print(f"UNSAT: {res['UNSAT']}")
-    print(f"UNKNOWN: {res['UNKNOWN']}")
-    print(f"ERR: {res['ERR']}")
-    print(f"LONGEST_RUN_TIME: {res['LONGEST_RUN_TIME']}")
+    print(f"SAT: {result_summary['SAT']}")
+    print(f"UNSAT: {result_summary['UNSAT']}")
+    print(f"UNKNOWN: {result_summary['UNKNOWN']}")
+    print(f"ERR: {result_summary['ERR']}")
+    print(f"LONGEST_RUN_TIME: {result_summary['LONGEST_RUN_TIME']}")
     
     # Write res to json file
     with open(f"benchmark_results_{verifier_name}_{benchmmark_name}.json", "w") as f:
-        json.dump(res, f)
+        json.dump(result_summary, f)
+    with open(f"benchmark_results_detailed_{verifier_name}_{benchmmark_name}.json", "w") as f:
+        json.dump(result_detailed, f)
     
     return
     
