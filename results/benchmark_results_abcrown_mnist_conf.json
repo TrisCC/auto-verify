@@ -1,0 +1,434 @@
+{
+    "TOTAL_RUNTIME": 0,
+    "TOTAL_RUNS": 31,
+    "SAT": 0,
+    "UNSAT": 0,
+    "TIMEOUT": 0,
+    "UNKNOWN": 0,
+    "ERR": 30,
+    "ERR_FILES": [
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_0_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.745112657546997
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_1_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.665436506271362
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_2_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.925259828567505
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_3_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.986729860305786
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_4_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.773076295852661
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_5_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.83773946762085
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_6_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.817086696624756
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_7_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.993323087692261
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_8_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.933110237121582
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_9_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.816203594207764
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_10_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.914340972900391
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_11_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.811352252960205
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_12_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.098907232284546
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_13_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.115479946136475
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_14_0.03",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.980203866958618
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_0_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.006102561950684
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_1_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.693817377090454
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_2_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.785077333450317
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_3_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.880268335342407
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_4_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.763132095336914
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_5_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.883824825286865
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_6_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.7165186405181885
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_7_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.868853807449341
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_8_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.121224641799927
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_9_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.54767632484436
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_10_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.133421421051025
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_11_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 4.895591497421265
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_12_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.228860855102539
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_13_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.277585983276367
+        },
+        {
+            "ONNX": "mnist-net_256x2",
+            "VNNLIB": "prop_14_0.05",
+            "ERROR": [
+                "/bin/bash: /home/tristan/miniconda3/envs/__av__abcrown/lib/libtinfo.so.6: no version information available (required by /bin/bash)",
+                "Configurations:",
+                "",
+                "...",
+                "  File \"/home/tristan/.local/share/autoverify/verifiers/abcrown/tool/complete_verifier/auto_LiRPA/operators/activation.py\", line 326, in init_opt_parameters",
+                "    alpha_init = self.lower_d[:, :, self.alpha_indices[0]]",
+                "IndexError: too many indices for tensor of dimension 2"
+            ],
+            "RUNTIME": 5.509967803955078
+        }
+    ],
+    "LONGEST_RUN_TIME": 0,
+    "LONGEST_RUN_TIME_NETWORK": "",
+    "LONGEST_RUN_TIME_PROPERTY": ""
+}

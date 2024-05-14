@@ -1,0 +1,21 @@
+[
+    {
+        "verifier": "abcrown",
+        "configuration": {
+            "attack__pgd_order": "before",
+            "bab__branching__input_split__enable": false,
+            "bab__branching__method": "kfsb",
+            "bab__branching__reduceop": "min",
+            "general__complete_verifier": "bab",
+            "general__enable_incomplete_verification": true,
+            "general__loss_reduction_func": "sum",
+            "solver__bound_prop_method": "alpha-crown",
+            "attack__attack_mode": "PGD",
+            "attack__enable_mip_attack": false
+        },
+        "resources": [
+            12,
+            1
+        ]
+    }
+]

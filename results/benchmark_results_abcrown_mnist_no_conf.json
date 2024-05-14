@@ -1,0 +1,13 @@
+{
+    "TOTAL_RUNTIME": 0,
+    "TOTAL_RUNS": 90,
+    "SAT": 9,
+    "UNSAT": 19,
+    "TIMEOUT": 2,
+    "UNKNOWN": 0,
+    "ERR": 0,
+    "ERR_FILES": [],
+    "LONGEST_RUN_TIME": 0,
+    "LONGEST_RUN_TIME_NETWORK": "",
+    "LONGEST_RUN_TIME_PROPERTY": ""
+}
