@@ -5,7 +5,7 @@ import sys
 from autoverify import __version__ as AV_VERSION
 from autoverify.util.verifiers import get_all_complete_verifier_names
 
-from .install import (
+from autoverify.cli.install import (
     check_commit_hashes,
     try_install_verifiers,
     try_uninstall_verifiers,
