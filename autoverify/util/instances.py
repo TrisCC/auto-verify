@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import json
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -20,7 +21,7 @@ from autoverify.verifier.verification_result import (
 @dataclass
 class VerificationDataResult:
     """_summary_."""
-
+    # TODO: Convert files to path objects
     network: str
     property: str
     timeout: int | None
@@ -29,9 +30,9 @@ class VerificationDataResult:
     success: Literal["OK", "ERR"]
     result: VerificationResultString
     took: float
-    counter_example: str | tuple[str, str] | None
-    stderr: str | None
-    stdout: str | None
+    counter_example: str | tuple[str, str] | None = None
+    stderr: str | None = None
+    stdout: str | None = None
 
     def __post_init__(self):
         """_summary_."""
@@ -44,8 +45,8 @@ class VerificationDataResult:
             self.counter_example = "\n".join(self.counter_example)
 
         return [
-            self.network,
-            self.property,
+            Path(self.network).stem,
+            Path(self.property).stem,
             str(self.timeout),
             self.verifier,
             self.config,
@@ -56,7 +57,27 @@ class VerificationDataResult:
             self.stderr or "",
             self.stdout or "",
         ]
+        
+    def as_json_row(self) -> dict[str, Any]:
+        """Convert data to a json item"""
 
+        if isinstance(self.counter_example, tuple):
+            self.counter_example = "\n".join(self.counter_example)
+            
+        return {
+            "network": Path(self.network).stem,
+            "property": Path(self.property).stem,
+            "timeout": str(self.timeout),
+            "verifier": self.verifier,
+            "config": str(self.config),
+            "success": self.success,
+            "result": self.result,
+            "took": str(self.took),
+            # "counter_example": self.counter_example or "",
+            "stderr": self.stderr or "",
+            "stdout": self.stdout or "",
+        }
+        
     @classmethod
     def from_verification_result(
         cls,
@@ -86,7 +107,6 @@ def init_verification_result_csv(csv_path: Path):
         writer = csv.writer(csv_file)
         writer.writerow(get_dataclass_field_names(VerificationDataResult))
 
-
 def csv_append_verification_result(
     verification_result: VerificationDataResult, csv_path: Path
 ):
@@ -94,6 +114,26 @@ def csv_append_verification_result(
     with open(str(csv_path.expanduser()), "a") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(verification_result.as_csv_row())
+    
+def json_write_verification_result(
+    verification_result: VerificationDataResult, json_path: Path
+):
+    """_summary_."""
+    # Create json file if it does not exist
+    if not json_path.exists():
+        with open(str(json_path.expanduser()), "w") as json_file:
+            json.dump({"instances": []}, json_file)
+
+    # Append to json file
+    with open(str(json_path.expanduser()), "r+") as json_file:
+        try:
+            file_data = json.load(json_file)
+        except json.decoder.JSONDecodeError:
+            file_data = []
+            
+        file_data["instances"].append(verification_result.as_json_row())
+        json_file.seek(0)
+        json.dump(file_data, json_file)
 
 
 def read_verification_result_from_csv(
@@ -106,6 +146,19 @@ def read_verification_result_from_csv(
     for _, row in results_df.iterrows():
         row = row.to_list()
         verification_results.append(VerificationDataResult(*row))
+
+    return verification_results
+
+def read_verification_result_from_json(
+    json_path: Path,
+) -> list[VerificationDataResult]:
+    """Reads a verification results json to a list of its dataclass."""
+    results = pd.read_json(json_path)["instances"].tolist()
+
+    verification_results: list[VerificationDataResult] = []
+
+    for res in results:
+        verification_results.append(VerificationDataResult(**res))
 
     return verification_results
 
