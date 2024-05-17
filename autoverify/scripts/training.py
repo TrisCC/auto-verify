@@ -1,13 +1,13 @@
-import sys
-import csv
-import time
-import os
+"""_summary_."""
+
 from pathlib import Path
-from autoverify.portfolio import Hydra, PortfolioScenario, PortfolioRunner
+
+from autoverify.portfolio import Hydra, PortfolioScenario
 from autoverify.util.instances import read_vnncomp_instances
 
 
 def main():
+    """_summary_."""
     benchmark = read_vnncomp_instances(
         "cifar2020", vnncomp_path=Path("./vnncomp/vnncomp2022/benchmarks")
     )

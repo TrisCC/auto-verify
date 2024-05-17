@@ -1,21 +1,15 @@
-import sys
-import csv
-import time
-import os
+"""_summary_."""
+
 import json
 from pathlib import Path
-from autoverify.portfolio import (
-    Hydra,
-    PortfolioScenario,
-    PortfolioRunner,
-    Portfolio,
-)
+
+from autoverify.portfolio import ConfiguredVerifier, Portfolio, PortfolioRunner
 from autoverify.util.instances import read_vnncomp_instances
 from autoverify.util.verifiers import get_verifier_configspace
-from autoverify.portfolio import ConfiguredVerifier
 
 
 def main():
+    """_summary_."""
     # Read benchmarks and truncate it to the first few examples
     cifar = read_vnncomp_instances(
         "cifar2020", Path("./vnncomp/vnncomp2022/benchmarks")
@@ -24,7 +18,8 @@ def main():
     # Read results json in ./results/
     results = json.load(open(Path("./results/cifar2020_notable_results.json")))
 
-    # Create filtered list of the cifar list where the remaining list has the same network and property name as an entry in the results list
+    # Create filtered list of the cifar list where the remaining list has
+    # the same network and property name as an entry in the results list
     filtered_cifar = []
     for instance in cifar:
         for result in results:

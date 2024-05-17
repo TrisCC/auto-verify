@@ -1,9 +1,11 @@
-import gzip, os
+"""_summary_."""
+
+import gzip
+import os
 
 
 def unzip_gz(path):
-    """
-    Unzips all .gz files in a directory and its subdirectories.
+    """Unzips all .gz files in a directory and its subdirectories.
 
     Args:
       path: The path to the directory containing the .gz files.

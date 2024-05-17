@@ -1,20 +1,14 @@
-import sys
-import csv
-import time
-import os
+"""_summary_."""
+
 from pathlib import Path
-from autoverify.portfolio import (
-    Hydra,
-    PortfolioScenario,
-    PortfolioRunner,
-    Portfolio,
-)
+
+from autoverify.portfolio import ConfiguredVerifier, Portfolio, PortfolioRunner
 from autoverify.util.instances import read_vnncomp_instances
 from autoverify.util.verifiers import get_verifier_configspace
-from autoverify.portfolio import ConfiguredVerifier
 
 
 def main():
+    """_summary_."""
     # Read benchmarks and truncate it to the first few examples
     cifar = read_vnncomp_instances(
         "cifar2020", Path("./vnncomp/vnncomp2022/benchmarks")

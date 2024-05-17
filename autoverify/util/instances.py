@@ -47,8 +47,8 @@ class VerificationDataResult:
             self.counter_example = "\n".join(self.counter_example)
 
         return [
-            Path(self.network).stem,
-            Path(self.property).stem,
+            self.network,
+            self.property,
             str(self.timeout),
             self.verifier,
             self.config,
@@ -61,14 +61,13 @@ class VerificationDataResult:
         ]
 
     def as_json_row(self) -> dict[str, Any]:
-        """Convert data to a json item"""
-
+        """Convert data to a json item."""
         if isinstance(self.counter_example, tuple):
             self.counter_example = "\n".join(self.counter_example)
 
         return {
-            "network": Path(self.network).stem,
-            "property": Path(self.property).stem,
+            "network": self.network,
+            "property": self.property,
             "timeout": str(self.timeout),
             "verifier": self.verifier,
             "config": str(self.config),

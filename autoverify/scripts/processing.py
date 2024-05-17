@@ -1,35 +1,31 @@
-import os
-import pandas as pd
-import numpy as np
-import sys
+"""_summary_."""
+
 import json
 from pathlib import Path
-from autoverify.util.instances import (
-    read_vnncomp_instances,
-    read_verification_result_from_json,
-)
+
+from autoverify.util.instances import read_verification_result_from_json
 
 
 def main():
-
+    """_summary_."""
     all_results = [
         read_verification_result_from_json(
-            "PF_ABCROWN_cifar2020_default_results.json"
+            Path("./results/PF_ABCROWN_cifar2020_default_results.json")
         ),
         read_verification_result_from_json(
-            "PF_ABCROWN_cifar2020_trained_results.json"
+            Path("./results/PF_ABCROWN_cifar2020_trained_results.json")
         ),
         read_verification_result_from_json(
-            "PF_NNENUM_cifar2020_default_results.json"
+            Path("./results/PF_NNENUM_cifar2020_default_results.json")
         ),
         read_verification_result_from_json(
-            "PF_NNENUM_cifar2020_trained_results.json"
+            Path("./results/PF_NNENUM_cifar2020_trained_results.json")
         ),
         read_verification_result_from_json(
-            "PF_ABCROWN_NNENUM_cifar2020_default_results.json"
+            Path("./results/PF_ABCROWN_NNENUM_cifar2020_default_results.json")
         ),
         read_verification_result_from_json(
-            "PF_ABCROWN_NNENUM_cifar2020_trained_results.json"
+            Path("./results/PF_ABCROWN_NNENUM_cifar2020_trained_results.json")
         ),
     ]
 
@@ -49,7 +45,7 @@ def main():
             }
         )
 
-    with open(f"cifar2020_processed.json", "w") as f:
+    with open("cifar2020_processed.json", "w") as f:
         json.dump(output, f)
 
     return 0
