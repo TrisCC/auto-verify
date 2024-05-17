@@ -1,0 +1,72 @@
+[
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_10_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "OK",
+        "ABCROWN_NNENUM_TRAINED": "OK"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_21_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "ERR",
+        "ABCROWN_NNENUM_TRAINED": "ERR"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_37_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "OK",
+        "ABCROWN_NNENUM_TRAINED": "OK"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_50_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "ERR",
+        "ABCROWN_NNENUM_TRAINED": "ERR"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_78_eps_0.00784",
+        "ABCROWN_DEFAULT": "ERR",
+        "ABCROWN_TRAINED": "ERR",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "ERR",
+        "ABCROWN_NNENUM_TRAINED": "ERR"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_88_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "OK",
+        "ABCROWN_NNENUM_TRAINED": "OK"
+    },
+    {
+        "network": "convBigRELU__PGD",
+        "property": "cifar10_spec_idx_97_eps_0.00784",
+        "ABCROWN_DEFAULT": "OK",
+        "ABCROWN_TRAINED": "OK",
+        "NNENUM_DEFAULT": "ERR",
+        "NNENUM_TRAINED": "ERR",
+        "ABCROWN_NNENUM_DEFAULT": "ERR",
+        "ABCROWN_NNENUM_TRAINED": "ERR"
+    }
+]
