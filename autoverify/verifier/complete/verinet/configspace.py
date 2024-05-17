@@ -41,8 +41,8 @@ VerinetConfigspace.add_hyperparameters(
         # ),
         Integer(
             "MAX_ESTIMATED_MEM_USAGE",
-            (64 * 10**8, 64 * 10**11),
-            default=64 * 10**9,
+            (64 * 10 ** 8, 64 * 10 ** 11),
+            default=64 * 10 ** 9,
         ),
         Integer(
             "OPTIMISED_RELU_RELAXATION_MAX_BOUNDS_MULTIPLIER",

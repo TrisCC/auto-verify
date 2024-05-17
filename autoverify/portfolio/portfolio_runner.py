@@ -17,7 +17,7 @@ from autoverify.util.instances import (
     VerificationDataResult,
     csv_append_verification_result,
     init_verification_result_csv,
-    json_write_verification_result
+    json_write_verification_result,
 )
 from autoverify.util.proc import cpu_count, nvidia_gpu_count
 from autoverify.util.resources import to_allocation
@@ -218,7 +218,7 @@ class PortfolioRunner:
 
         vdr = VerificationDataResult.from_verification_result(res_d, inst_d)
         csv_append_verification_result(vdr, out_csv)
-        
+
     @staticmethod
     def _json_log_result(
         out_json: Path,
@@ -335,7 +335,7 @@ class PortfolioRunner:
 
         if out_csv:
             out_csv = out_csv.expanduser().resolve()
-            
+
         if out_json:
             out_json = out_json.expanduser().resolve()
 
@@ -390,7 +390,7 @@ class PortfolioRunner:
                                 fut_cv.verifier,
                                 fut_cv.configuration,
                             )
-                            
+
                         if out_json:
                             self._json_log_result(
                                 out_json,

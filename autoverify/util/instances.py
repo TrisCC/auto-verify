@@ -21,6 +21,7 @@ from autoverify.verifier.verification_result import (
 @dataclass
 class VerificationDataResult:
     """_summary_."""
+
     # TODO: Convert files to path objects
     network: str
     property: str
@@ -57,13 +58,13 @@ class VerificationDataResult:
             self.stderr or "",
             self.stdout or "",
         ]
-        
+
     def as_json_row(self) -> dict[str, Any]:
         """Convert data to a json item"""
 
         if isinstance(self.counter_example, tuple):
             self.counter_example = "\n".join(self.counter_example)
-            
+
         return {
             "network": Path(self.network).stem,
             "property": Path(self.property).stem,
@@ -77,7 +78,7 @@ class VerificationDataResult:
             "stderr": self.stderr or "",
             "stdout": self.stdout or "",
         }
-        
+
     @classmethod
     def from_verification_result(
         cls,
@@ -107,6 +108,7 @@ def init_verification_result_csv(csv_path: Path):
         writer = csv.writer(csv_file)
         writer.writerow(get_dataclass_field_names(VerificationDataResult))
 
+
 def csv_append_verification_result(
     verification_result: VerificationDataResult, csv_path: Path
 ):
@@ -114,7 +116,8 @@ def csv_append_verification_result(
     with open(str(csv_path.expanduser()), "a") as csv_file:
         writer = csv.writer(csv_file)
         writer.writerow(verification_result.as_csv_row())
-    
+
+
 def json_write_verification_result(
     verification_result: VerificationDataResult, json_path: Path
 ):
@@ -130,7 +133,7 @@ def json_write_verification_result(
             file_data = json.load(json_file)
         except json.decoder.JSONDecodeError:
             file_data = []
-            
+
         file_data["instances"].append(verification_result.as_json_row())
         json_file.seek(0)
         json.dump(file_data, json_file)
@@ -148,6 +151,7 @@ def read_verification_result_from_csv(
         verification_results.append(VerificationDataResult(*row))
 
     return verification_results
+
 
 def read_verification_result_from_json(
     json_path: Path,

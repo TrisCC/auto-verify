@@ -6,8 +6,11 @@ from pathlib import Path
 from autoverify.portfolio import Hydra, PortfolioScenario, PortfolioRunner
 from autoverify.util.instances import read_vnncomp_instances
 
+
 def main():
-    benchmark = read_vnncomp_instances("cifar2020", vnncomp_path=Path("./vnncomp/vnncomp2022/benchmarks"))
+    benchmark = read_vnncomp_instances(
+        "cifar2020", vnncomp_path=Path("./vnncomp/vnncomp2022/benchmarks")
+    )
 
     # pf_scenario = PortfolioScenario(
     #     ["nnenum", "abcrown", "ovalbab", "verinet"],
@@ -27,7 +30,7 @@ def main():
     # hydra = Hydra(pf_scenario)
     # pf = hydra.tune_portfolio()
     # pf.to_json(Path("cifar2020_portfolio.json"))
-    
+
     pf_scenario = PortfolioScenario(
         ["abcrown"],
         [
@@ -43,7 +46,7 @@ def main():
     hydra = Hydra(pf_scenario)
     pf = hydra.tune_portfolio()
     pf.to_json(Path("cifar2020_abcrown_portfolio.json"))
-    
+
     pf_scenario = PortfolioScenario(
         ["nnenum"],
         [
@@ -59,9 +62,9 @@ def main():
     hydra = Hydra(pf_scenario)
     pf = hydra.tune_portfolio()
     pf.to_json(Path("cifar2020_nnenum_portfolio.json"))
-    
+
     return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
-    
