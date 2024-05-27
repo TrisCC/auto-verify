@@ -343,8 +343,8 @@ class PortfolioRunner:
         results: dict[VerificationInstance, VerificationDataResult] = {}
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            for instance in instances:
-                logger.info(f"Running portfolio on {str(instance)}")
+            for index, instance in enumerate(instances):
+                logger.info(f"{index}/{len(instances)} - Running portfolio on {str(instance)}")
 
                 futures: dict[
                     Future[CompleteVerificationResult], ConfiguredVerifier

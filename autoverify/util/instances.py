@@ -66,8 +66,8 @@ class VerificationDataResult:
             self.counter_example = "\n".join(self.counter_example)
 
         return {
-            "network": self.network,
-            "property": self.property,
+            "network": self.network.name,
+            "property": self.property.name,
             "timeout": str(self.timeout),
             "verifier": self.verifier,
             "config": str(self.config),
@@ -75,8 +75,8 @@ class VerificationDataResult:
             "result": self.result,
             "took": str(self.took),
             # "counter_example": self.counter_example or "",
-            "stderr": self.stderr or "",
-            "stdout": self.stdout or "",
+            "stderr": self.stderr[-150:] or "",
+            "stdout": self.stdout[-150:] or "",
         }
 
     @classmethod
@@ -131,8 +131,11 @@ def json_write_verification_result(
     with open(str(json_path.expanduser()), "r+") as json_file:
         try:
             file_data = json.load(json_file)
+            # Check if file_data is empty
+            if not file_data:
+                file_data = {"instances": []}
         except json.decoder.JSONDecodeError:
-            file_data = []
+            file_data = {"instances": []}
 
         file_data["instances"].append(verification_result.as_json_row())
         json_file.seek(0)
