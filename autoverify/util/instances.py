@@ -66,8 +66,8 @@ class VerificationDataResult:
             self.counter_example = "\n".join(self.counter_example)
 
         return {
-            "network": self.network.name,
-            "property": self.property.name,
+            "network": self.network,
+            "property": self.property,
             "timeout": str(self.timeout),
             "verifier": self.verifier,
             "config": str(self.config),
