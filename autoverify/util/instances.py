@@ -75,8 +75,8 @@ class VerificationDataResult:
             "result": self.result,
             "took": str(self.took),
             # "counter_example": self.counter_example or "",
-            "stderr": self.stderr[-150:] or "",
-            "stdout": self.stdout[-150:] or "",
+            "stderr": self.stderr or "",
+            "stdout": self.stdout or "",
         }
 
     @classmethod
