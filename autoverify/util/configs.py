@@ -22,8 +22,10 @@ def config_from_str(cfg: str, cfg_space: ConfigurationSpace) -> Configuration:
     return Configuration(cfg_space, config_dict_from_config_str(cfg))
 
 
-def flatten_dict_keys(data: dict, prefix=""):
-    """Flattens a nested dictionary by concatenating keys with values using a specified prefix."""
+def flatten_dict_keys(data: dict[str, Any], prefix=""):
+    """Flattens a nested dictionary by concatenating keys with values using a sp
+    ecified prefix.
+    """
     flat_list = []
     for key, value in data.items():
         # Concatenate key with prefix (if provided)
@@ -40,7 +42,8 @@ def flatten_dict_keys(data: dict, prefix=""):
 
 
 def convert_to_data_type(string_value):
-    """Converts a string to an appropriate data type using built-in functions."""
+    """Converts a string to an appropriate data type using built-in functions.
+    """
     try:
         # Attempt conversion to integer
         return int(string_value)
@@ -82,7 +85,7 @@ def config_from_yaml_file(
             # Remove unnecessary parameters
             del cfg_dict["model"]
             del cfg_dict["specification"]
-        except:
+        except KeyError:
             logging.debug("Could not delete model and/or specification")
         cfg_dict = flatten_dict_keys(cfg_dict)
 
