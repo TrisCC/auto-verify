@@ -2,6 +2,7 @@
 
 from ConfigSpace import (
     Categorical,
+    Integer,
     ConfigurationSpace,
     EqualsCondition,
     Float,
@@ -31,9 +32,19 @@ AbCrownConfigspace.add_hyperparameters(
             ["sum", "min", "max"],
             default="sum",
         ),
+        Categorical(
+            "general__save_adv_example",
+            [True, False],
+            default=False,
+        ),
         ########################################################################
         # SOLVER
         ########################################################################
+        Integer(
+            "solver__batch_size",
+            (1, 2048),
+            default=64,
+        ),
         # Integer(
         #     "solver__early_stop_patience",
         #     (1, 30),
