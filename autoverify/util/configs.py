@@ -42,8 +42,7 @@ def flatten_dict_keys(data: dict[str, Any], prefix=""):
 
 
 def convert_to_data_type(string_value):
-    """Converts a string to an appropriate data type using built-in functions.
-    """
+    """Converts a string to an appropriate data type using built-in functions."""
     try:
         # Attempt conversion to integer
         return int(string_value)
