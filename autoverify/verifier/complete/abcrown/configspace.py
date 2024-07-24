@@ -2,12 +2,12 @@
 
 from ConfigSpace import (
     Categorical,
-    Integer,
     ConfigurationSpace,
     EqualsCondition,
     Float,
     ForbiddenAndConjunction,
     ForbiddenEqualsClause,
+    Integer,
     NotEqualsCondition,
 )
 
@@ -445,7 +445,7 @@ AbCrownConfigspace.add_conditions(
     ]
 )
 
-for hp in AbCrownConfigspace.get_hyperparameters():
+for hp in list(AbCrownConfigspace.values()):
     if not hp.name.startswith("bab__branching__input_split"):
         continue
 
@@ -458,7 +458,7 @@ for hp in AbCrownConfigspace.get_hyperparameters():
         )
     )
 
-for hp in AbCrownConfigspace.get_hyperparameters():
+for hp in list(AbCrownConfigspace.values()):
     if not hp.name.startswith("attack__"):
         continue
 

@@ -77,7 +77,7 @@ class MnbabJsonConfig:
         timeout: int = DEFAULT_VERIFICATION_TIMEOUT_SEC,
     ):
         """_summary_."""
-        dict_config: dict[str, Any] = config.get_dictionary()
+        dict_config: dict[str, Any] = dict(config)
         mnbab_dict: dict[str, Any] = {}
 
         for key, value in dict_config.items():

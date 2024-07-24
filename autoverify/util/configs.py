@@ -1,12 +1,12 @@
 """_summary_."""
 
 import ast
-import re
-import yaml
 import logging
+import re
 from pathlib import Path
 from typing import Any
 
+import yaml
 from ConfigSpace import Configuration, ConfigurationSpace
 
 
@@ -42,7 +42,7 @@ def flatten_dict_keys(data: dict[str, Any], prefix=""):
 
 
 def convert_to_data_type(string_value):
-    """Converts a string to an appropriate data type using built-in functions."""
+    """Converts a string to appropriate data types using built-in functions."""
     try:
         # Attempt conversion to integer
         return int(string_value)
